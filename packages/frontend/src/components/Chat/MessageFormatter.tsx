@@ -11,8 +11,10 @@ export interface MessageFormatterProps {
 
 export default function MessageFormatter({ content }: MessageFormatterProps) {
   return (
-    <div className="prose prose-sm max-w-none">
+    <div className="prose prose-sm max-w-none dark:prose-invert">
       <ReactMarkdown
+        remarkPlugins={[]}
+        rehypePlugins={[]}
         components={{
           // @ts-ignore - react-markdownの型定義の問題を回避
           // カスタムコードブロックのレンダリング
@@ -47,13 +49,27 @@ export default function MessageFormatter({ content }: MessageFormatterProps) {
             );
           },
           // 重要な部分の強調
-          em({ node, children, ...props }) {
-            return (
-              <em className="text-blue-600 not-italic font-semibold" {...props}>
-                {children}
-              </em>
-            );
-          }
+              em({ node, children, ...props }) {
+                return (
+                  <em className="italic text-blue-600" {...props}>
+                    {children}
+                  </em>
+                );
+              },
+              h1({ node, children, ...props }) {
+                return (
+                  <h1 className="text-2xl font-bold mt-4 mb-2" {...props}>
+                    {children}
+                  </h1>
+                );
+              },
+              h2({ node, children, ...props }) {
+                return (
+                  <h2 className="text-xl font-bold mt-3 mb-2" {...props}>
+                    {children}
+                  </h2>
+                );
+              }
         }}
       >
         {content}

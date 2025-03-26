@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { checkHealth } from '../../services/api';
 import type { Message } from './index';
 import type { FC } from 'react';
@@ -11,7 +11,16 @@ interface ChatMessagesProps {
 }
 
 export default function ChatMessages({ messages, formatter: Formatter }: ChatMessagesProps) {
+  const messagesEndRef = useRef<HTMLDivElement>(null);
   const [isConnected, setIsConnected] = useState(false);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   useEffect(() => {
     const verifyConnection = async () => {
@@ -28,7 +37,7 @@ export default function ChatMessages({ messages, formatter: Formatter }: ChatMes
   }, []);
 
   return (
-    <div className="flex-1 overflow-y-auto p-4 space-y-4">
+    <div className="flex-1 overflow-y-auto p-4 space-y-4 prose prose-sm max-w-none">
       {!isConnected && (
         <div className="text-red-500 p-2 bg-red-50 rounded">
           Warning: Unable to connect to AI service
@@ -59,6 +68,7 @@ export default function ChatMessages({ messages, formatter: Formatter }: ChatMes
           </div>
         ))
       )}
+      <div ref={messagesEndRef} />
     </div>
   );
 }

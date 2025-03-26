@@ -30,16 +30,20 @@ export default function Chat() {
       setMessages(prev => [...prev, newUserMessage]);
       setIsLoading(true);
       
+      // 意図的な遅延を追加してローディング状態を表示
+      await new Promise(resolve => setTimeout(resolve, 500));
       const response = await sendMessage(text);
       
-      const aiMessage = {
-        id: (Date.now() + 1).toString(),
-        text: response.answer,
-        sender: 'ai' as const,
-        timestamp: new Date()
-      };
+      if (response?.answer) {
+        const aiMessage = {
+          id: (Date.now() + 1).toString(),
+          text: response.answer,
+          sender: 'ai' as const,
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, aiMessage]);
+      }
       
-      setMessages(prev => [...prev, aiMessage]);
     } catch (error) {
       console.error('Chat error:', error);
       // エラーメッセージを表示
