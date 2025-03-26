@@ -1,17 +1,20 @@
 import os
 import sys
+from pathlib import Path
 
-# Add the src directory to Python path
-sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
+# Get the absolute path to the project root
+project_root = Path(__file__).parent.absolute()
+
+# Add the project root to Python path
+sys.path.insert(0, str(project_root))
 
 if __name__ == "__main__":
     import uvicorn
-
-    from core.config import settings
-
+    
     uvicorn.run(
         "src.main:app",
-        host=settings.HOST,
-        port=settings.PORT,
-        reload=settings.ENVIRONMENT == "development",
+        host="127.0.0.1",
+        port=8000,
+        reload=True,
+        reload_dirs=[str(project_root / "src")]
     )

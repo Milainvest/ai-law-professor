@@ -2,23 +2,35 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from api.v1.router import router as api_v1_router
-from core.config import settings
+from src.api.v1.router import router as api_v1_router
+from src.core.config import settings
 
-app = FastAPI(title=settings.PROJECT_NAME, openapi_url=f"{settings.API_V1_STR}/openapi.json")
+app = FastAPI(
+    title=settings.PROJECT_NAME,
+    openapi_url=f"{settings.API_V1_STR}/openapi.json",
+    docs_url="/docs",
+    redoc_url="/redoc",
+)
 
 # CORS middleware configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.BACKEND_CORS_ORIGINS,
+    allow_origins=["*"],  # For development only
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Include API router
-app.include_router(api_v1_router)
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
 
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}
+
+# Include API router with prefix
+app.include_router(api_v1_router, prefix=settings.API_V1_STR)
 
 # Error handler for HTTPException
 @app.exception_handler(HTTPException)
@@ -27,7 +39,6 @@ async def http_exception_handler(request, exc):
         status_code=exc.status_code,
         content={"error": {"code": exc.status_code, "message": exc.detail}},
     )
-
 
 if __name__ == "__main__":
     import uvicorn

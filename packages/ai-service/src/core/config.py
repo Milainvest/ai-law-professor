@@ -11,7 +11,7 @@ class Settings(BaseSettings):
 
     # FastAPI Settings
     HOST: str = "0.0.0.0"
-    PORT: int = 3002
+    PORT: int = 8000
 
     # Vector Store Settings
     CHROMA_DB_DIR: str = "data/chromadb"
