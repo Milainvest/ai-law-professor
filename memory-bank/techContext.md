@@ -26,10 +26,11 @@
 - **RAG Pipeline**: Custom implementation
 
 ### Databases
-- **Primary**: MongoDB (Atlas)
-- **Vector**: ChromaDB
+- **Primary**: PostgreSQL (v15)
+- **Vector**: PostgreSQL pgvector extension
 - **Cache**: Redis
 - **ORM**: TypeORM (Node.js), SQLAlchemy (Python)
+- **Migrations**: Alembic (Python)
 
 ### DevOps
 - **Containerization**: Docker
@@ -53,7 +54,8 @@
 
 - **Backend**:
   - langchain for AI pipeline
-  - pymongo for MongoDB access
+  - psycopg2 for PostgreSQL access
+  - pgvector for vector operations
   - redis-py for caching
 
 ## Technical Constraints

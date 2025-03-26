@@ -19,10 +19,11 @@ The system follows a hybrid microservices architecture with these main component
    - Implements RAG (Retrieval-Augmented Generation)
    - Manages conversation context and memory
 
-4. **Knowledge Base** (ChromaDB + MongoDB)
+4. **Knowledge Base** (ChromaDB + PostgreSQL)
    - Vector store for legal documents and cases
-   - Traditional database for user data and metadata
+   - Traditional database for user data and metadata with PostgreSQL
    - Regular updates from legal sources
+   - PostgreSQL vector extension for embeddings
 
 ## Key Design Patterns
 
@@ -49,7 +50,7 @@ flowchart TD
     AG -->|gRPC| AI[AI Service]
     AI -->|Queries| KB[Knowledge Base]
     AI -->|Updates| KB
-    AG -->|Queries| DB[(MongoDB)]
+    AG -->|Queries| DB[(PostgreSQL)]
     FE -->|WebSocket| AI[AI Service]
 ```
 

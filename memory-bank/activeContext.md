@@ -12,6 +12,8 @@
 2. Project requirements documented
 3. Development workflow established
 4. Initial architecture designed
+5. Database technology changed to PostgreSQL
+6. Development tasks broken down into phases
 
 ## Immediate Next Steps
 1. Set up frontend project structure
@@ -22,7 +24,7 @@
 ## Active Decisions
 1. **Frontend Framework**: Decided on Next.js for SSR capabilities
 2. **AI Service Language**: Python chosen over TypeScript for ML ecosystem
-3. **Database Strategy**: Hybrid approach with MongoDB + ChromaDB
+3. **Database Strategy**: PostgreSQL with pgvector extension for unified data and vector storage
 4. **Deployment**: Kubernetes for orchestration
 
 ## Current Focus Areas
