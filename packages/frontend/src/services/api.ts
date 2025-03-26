@@ -1,35 +1,37 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000/api/v1';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001/api/v1';
 
 const api = axios.create({
-　baseURL: API_BASE_URL,
-　timeout: 10000,
-　headers: {
+  baseURL: API_BASE_URL,
+  timeout: 10000,
+  headers: {
     'Content-Type': 'application/json',
-　}
+  }
 });
 
 // Health check endpoint
 export const checkHealth = async () => {
-　try {
+  try {
     const response = await api.get('/health');
     return response.data;
-　} catch (error) {
+  } catch (error) {
     console.error('Health check failed:', error);
     throw error;
-　}
+  }
 };
 
 // Chat API endpoints
 export const sendMessage = async (message: string) => {
-　try {
+  try {
     const response = await api.post('/chat', { message });
-    return response.data;
-　} catch (error) {
+    return {
+      answer: response.data.response // APIのresponseフィールドをanswerフィールドにマッピング
+    };
+  } catch (error) {
     console.error('Message sending failed:', error);
     throw error;
-　}
+  }
 };
 
 // Error handling interceptor

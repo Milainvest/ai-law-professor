@@ -1,0 +1,237 @@
+INFO:     Will watch for changes in these directories: ['/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/src']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [17608] using StatReload
+INFO:     Started server process [17615]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-03-26 10:51:59,638 - src.core.middleware - INFO - Request: POST /api/v1/chat
+2025-03-26 10:51:59,639 - src.core.middleware - INFO - Response: POST /api/v1/chat - Status: 422
+INFO:     127.0.0.1:60955 - "POST /api/v1/chat HTTP/1.1" 422 Unprocessable Content
+2025-03-26 10:52:08,817 - src.core.middleware - INFO - Request: GET /
+2025-03-26 10:52:08,818 - src.core.middleware - INFO - Response: GET / - Status: 200
+INFO:     127.0.0.1:60962 - "GET / HTTP/1.1" 200 OK
+2025-03-26 10:52:10,103 - src.core.middleware - INFO - Request: GET /
+2025-03-26 10:52:10,104 - src.core.middleware - INFO - Response: GET / - Status: 200
+INFO:     127.0.0.1:60962 - "GET / HTTP/1.1" 200 OK
+2025-03-26 10:52:48,158 - src.core.middleware - INFO - Request: POST /api/v1/chat
+2025-03-26 10:52:48,159 - src.core.middleware - INFO - Response: POST /api/v1/chat - Status: 422
+INFO:     127.0.0.1:60979 - "POST /api/v1/chat HTTP/1.1" 422 Unprocessable Content
+2025-03-26 10:56:01,648 - src.core.middleware - INFO - Request: POST /api/v1/chat
+2025-03-26 10:56:01,649 - src.services.chat_service - ERROR - Error processing message: 'str' object has no attribute 'text'
+2025-03-26 10:56:01,649 - main - ERROR - HTTP error occurred: Error processing chat message: name 'HTTPException' is not defined
+2025-03-26 10:56:01,649 - src.core.middleware - INFO - Response: POST /api/v1/chat - Status: 500
+INFO:     127.0.0.1:61079 - "POST /api/v1/chat HTTP/1.1" 500 Internal Server Error
+2025-03-26 10:56:45,311 - src.core.middleware - INFO - Request: GET /
+2025-03-26 10:56:45,312 - src.core.middleware - INFO - Response: GET / - Status: 200
+INFO:     127.0.0.1:61099 - "GET / HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'src/api/v1/router.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [17615]
+INFO:     Started server process [19843]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-03-26 10:57:37,329 - src.core.middleware - INFO - Request: POST /api/v1/chat
+2025-03-26 10:57:37,329 - src.services.chat_service - ERROR - Error processing message: 'str' object has no attribute 'text'
+2025-03-26 10:57:37,329 - main - ERROR - HTTP error occurred: Error processing chat message: name 'HTTPException' is not defined
+2025-03-26 10:57:37,329 - src.core.middleware - INFO - Response: POST /api/v1/chat - Status: 500
+INFO:     127.0.0.1:61136 - "POST /api/v1/chat HTTP/1.1" 500 Internal Server Error
+2025-03-26 10:58:26,822 - src.core.middleware - INFO - Request: POST /api/v1/chat
+2025-03-26 10:58:26,823 - src.services.chat_service - ERROR - Error processing message: 'str' object has no attribute 'text'
+2025-03-26 10:58:26,823 - main - ERROR - HTTP error occurred: Error processing chat message: name 'HTTPException' is not defined
+2025-03-26 10:58:26,823 - src.core.middleware - INFO - Response: POST /api/v1/chat - Status: 500
+INFO:     127.0.0.1:61164 - "POST /api/v1/chat HTTP/1.1" 500 Internal Server Error
+WARNING:  StatReload detected changes in 'src/services/chat_service.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [19843]
+Process SpawnProcess-3:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/_subprocess.py", line 78, in subprocess_started
+    target(sockets=sockets)
+    ~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/server.py", line 62, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/server.py", line 69, in serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/config.py", line 458, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 21, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/src/main.py", line 5, in <module>
+    from src.api.v1.router import router as api_v1_router
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/src/api/v1/router.py", line 4, in <module>
+    from src.services.chat_service import ChatService
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/src/services/chat_service.py", line 8, in <module>
+    from src.core.logging import get_logger
+ImportError: cannot import name 'get_logger' from 'src.core.logging' (/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/src/core/logging.py)
+WARNING:  StatReload detected changes in 'src/api/v1/router.py'. Reloading...
+Process SpawnProcess-4:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/_subprocess.py", line 78, in subprocess_started
+    target(sockets=sockets)
+    ~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/server.py", line 62, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/server.py", line 69, in serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/config.py", line 458, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 21, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/src/main.py", line 5, in <module>
+    from src.api.v1.router import router as api_v1_router
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/src/api/v1/router.py", line 3, in <module>
+    from src.services.chat_service import ChatService
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/src/services/chat_service.py", line 8, in <module>
+    from src.core.logging import get_logger
+ImportError: cannot import name 'get_logger' from 'src.core.logging' (/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/src/core/logging.py)
+WARNING:  StatReload detected changes in 'src/services/chat_service.py'. Reloading...
+Process SpawnProcess-5:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/_subprocess.py", line 78, in subprocess_started
+    target(sockets=sockets)
+    ~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/server.py", line 62, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/server.py", line 69, in serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/config.py", line 458, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 21, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.2/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/src/main.py", line 5, in <module>
+    from src.api.v1.router import router as api_v1_router
+  File "/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/src/api/v1/router.py", line 4, in <module>
+    from src.core.logging import get_logger
+ImportError: cannot import name 'get_logger' from 'src.core.logging' (/Users/kounotarou/Documents/AI/ai-law-professor/packages/ai-service/src/core/logging.py)
+WARNING:  StatReload detected changes in 'src/api/v1/router.py'. Reloading...
+INFO:     Started server process [23871]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-03-26 11:08:57,669 - src.core.middleware - INFO - Request: POST /api/v1/chat
+2025-03-26 11:08:57,669 - api - INFO - Received chat message: Test correct port
+2025-03-26 11:08:57,669 - chat_service - INFO - Processing message: Test correct port
+2025-03-26 11:08:57,669 - api - INFO - Generated response: I received your message: Test correct port
+2025-03-26 11:08:57,670 - src.core.middleware - INFO - Response: POST /api/v1/chat - Status: 200
+INFO:      - "POST /api/v1/chat HTTP/1.1" 200 OK
+2025-03-26 11:08:57,670 - src.core.middleware - INFO - Request: GET /
+2025-03-26 11:08:57,670 - src.core.middleware - INFO - Response: GET / - Status: 200
+INFO:      - "GET / HTTP/1.1" 200 OK
+2025-03-26 11:08:57,670 - src.core.middleware - INFO - Request: GET /
+2025-03-26 11:08:57,670 - src.core.middleware - INFO - Response: GET / - Status: 200
+INFO:      - "GET / HTTP/1.1" 200 OK
+2025-03-26 11:08:57,670 - src.core.middleware - INFO - Request: POST /api/v1/chat
+2025-03-26 11:08:57,670 - api - INFO - Received chat message: Test after port fix
+2025-03-26 11:08:57,670 - chat_service - INFO - Processing message: Test after port fix
+2025-03-26 11:08:57,670 - api - INFO - Generated response: I received your message: Test after port fix
+2025-03-26 11:08:57,670 - src.core.middleware - INFO - Response: POST /api/v1/chat - Status: 200
+INFO:      - "POST /api/v1/chat HTTP/1.1" 200 OK
+2025-03-26 11:09:06,062 - src.core.middleware - INFO - Request: GET /
+2025-03-26 11:09:06,062 - src.core.middleware - INFO - Response: GET / - Status: 200
+INFO:     127.0.0.1:61749 - "GET / HTTP/1.1" 200 OK
+2025-03-26 11:09:24,216 - src.core.middleware - INFO - Request: POST /api/v1/chat
+2025-03-26 11:09:24,217 - api - INFO - Received chat message: Final test after all fixes
+2025-03-26 11:09:24,217 - chat_service - INFO - Processing message: Final test after all fixes
+2025-03-26 11:09:24,217 - api - INFO - Generated response: I received your message: Final test after all fixes
+2025-03-26 11:09:24,217 - src.core.middleware - INFO - Response: POST /api/v1/chat - Status: 200
+INFO:     127.0.0.1:61758 - "POST /api/v1/chat HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'src/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [23871]
+INFO:     Started server process [24598]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-03-26 14:32:57,503 - src.core.middleware - INFO - Request: GET /favicon.ico
+2025-03-26 14:32:57,506 - src.core.middleware - INFO - Response: GET /favicon.ico - Status: 404
+INFO:     127.0.0.1:50966 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [24598]
+INFO:     Stopping reloader process [17608]

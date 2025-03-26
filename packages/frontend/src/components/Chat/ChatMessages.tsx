@@ -1,24 +1,45 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { checkHealth } from '../../services/api';
-
 import type { Message } from './index';
+import type { FC } from 'react';
+import type { MessageFormatterProps } from './MessageFormatter';
+import { MessageItem } from './MessageItem';
+import { LoadingIndicator } from './LoadingIndicator';
 
 interface ChatMessagesProps {
   messages: Message[];
+  formatter?: FC<MessageFormatterProps>;
 }
 
-export default function ChatMessages({ messages }: ChatMessagesProps) {
+export default function ChatMessages({ messages, formatter: Formatter }: ChatMessagesProps) {
+  const messagesEndRef = useRef<HTMLDivElement>(null);
   const [isConnected, setIsConnected] = useState(false);
+  const [errorType, setErrorType] = useState<'connection' | 'service' | 'timeout' | null>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   useEffect(() => {
     const verifyConnection = async () => {
       try {
         await checkHealth();
         setIsConnected(true);
+        setErrorType(null);
       } catch (error) {
-        console.error('API connection failed:', error);
         setIsConnected(false);
+        if (error instanceof TypeError) {
+          setErrorType('connection');
+        } else if (error.code === 'TIMEOUT') {
+          setErrorType('timeout');
+        } else {
+          setErrorType('service');
+        }
       }
     };
 
@@ -26,10 +47,12 @@ export default function ChatMessages({ messages }: ChatMessagesProps) {
   }, []);
 
   return (
-    <div className="flex-1 overflow-y-auto p-4 space-y-4">
+    <div className="flex-1 overflow-y-auto p-4 space-y-4 prose prose-sm max-w-none">
       {!isConnected && (
         <div className="text-red-500 p-2 bg-red-50 rounded">
-          Warning: Unable to connect to AI service
+          {errorType === 'connection' && 'Unable to reach the AI service. Please check your internet connection.'}
+          {errorType === 'timeout' && 'The AI service is taking too long to respond. Please try again.'}
+          {errorType === 'service' && 'The AI service is currently unavailable. Please try again later.'}
         </div>
       )}
 
@@ -39,20 +62,14 @@ export default function ChatMessages({ messages }: ChatMessagesProps) {
         </div>
       ) : (
         messages.map((message) => (
-          <div 
+          <MessageItem 
             key={message.id}
-            className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-          >
-            <div className={`max-w-3/4 p-3 rounded-lg ${
-              message.sender === 'user' 
-                ? 'bg-blue-100 text-blue-900' 
-                : 'bg-gray-100 text-gray-900'
-            }`}>
-              {message.text}
-            </div>
-          </div>
+            message={message}
+            formatter={Formatter}
+          />
         ))
       )}
+      <div ref={messagesEndRef} />
     </div>
   );
 }

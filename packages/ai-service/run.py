@@ -11,10 +11,12 @@ sys.path.insert(0, str(project_root))
 if __name__ == "__main__":
     import uvicorn
     
+    from src.core.config import settings
+    
     uvicorn.run(
         "src.main:app",
-        host="127.0.0.1",
-        port=8000,
+        host=settings.HOST,
+        port=settings.PORT,
         reload=True,
         reload_dirs=[str(project_root / "src")]
     )

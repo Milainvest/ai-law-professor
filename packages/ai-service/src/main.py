@@ -4,6 +4,10 @@ from fastapi.responses import JSONResponse
 
 from src.api.v1.router import router as api_v1_router
 from src.core.config import settings
+from src.core.middleware import LoggingMiddleware
+from src.core.logging import setup_logger
+
+logger = setup_logger("main", "logs/app.log")
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -11,6 +15,9 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc",
 )
+
+# Add logging middleware
+app.add_middleware(LoggingMiddleware)
 
 # CORS middleware configuration
 app.add_middleware(
@@ -35,6 +42,7 @@ app.include_router(api_v1_router, prefix=settings.API_V1_STR)
 # Error handler for HTTPException
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request, exc):
+    logger.error(f"HTTP error occurred: {exc.detail}")
     return JSONResponse(
         status_code=exc.status_code,
         content={"error": {"code": exc.status_code, "message": exc.detail}},
