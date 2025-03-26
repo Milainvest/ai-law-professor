@@ -14,11 +14,12 @@
 4. Initial architecture designed
 5. Database technology changed to PostgreSQL
 6. Development tasks broken down into phases
+7. GitHub issues created for core features
 
 ## Immediate Next Steps
-1. Set up frontend project structure
-2. Configure API gateway service
-3. Implement basic RAG pipeline
+1. Begin frontend implementation (Issue #2)
+2. Start database setup (Issue #1)
+3. Develop RAG pipeline (Issue #3)
 4. Create initial knowledge base loader
 
 ## Active Decisions
@@ -39,8 +40,9 @@
 3. User authentication requirements for law schools?
 
 ## Pending Tasks
-- [ ] Initialize frontend repository
-- [ ] Set up CI/CD pipelines
+- [ ] Implement frontend structure (Issue #2)
+- [ ] Set up PostgreSQL with pgvector (Issue #1)
+- [ ] Develop RAG pipeline (Issue #3)
 - [ ] Create initial legal knowledge base
 - [ ] Implement basic Q&A endpoint
 
