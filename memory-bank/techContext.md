@@ -3,6 +3,7 @@
 ## Technology Stack
 
 ### Frontend
+
 - **Framework**: Next.js (App Router)
 - **Language**: TypeScript
 - **UI Library**: shadcn/ui + Tailwind CSS
@@ -11,6 +12,7 @@
 - **Testing**: Jest + React Testing Library
 
 ### API Layer
+
 - **Framework**: Express.js
 - **Language**: TypeScript
 - **API Protocol**: REST/GraphQL hybrid
@@ -18,6 +20,7 @@
 - **Documentation**: Swagger UI
 
 ### AI Service
+
 - **Framework**: FastAPI
 - **Language**: Python
 - **LLM Integration**: LangChain
@@ -26,6 +29,7 @@
 - **RAG Pipeline**: Custom implementation
 
 ### Databases
+
 - **Primary**: PostgreSQL (v15)
 - **Vector**: PostgreSQL pgvector extension
 - **Cache**: Redis
@@ -33,6 +37,7 @@
 - **Migrations**: Alembic (Python)
 
 ### DevOps
+
 - **Containerization**: Docker
 - **Orchestration**: Kubernetes (local dev), AWS EKS (prod)
 - **CI/CD**: GitHub Actions
@@ -40,6 +45,7 @@
 - **Logging**: ELK Stack
 
 ## Development Environment
+
 - **Node.js**: v20.11.0 (LTS)
 - **Python**: 3.11
 - **Package Managers**: npm (Node), poetry (Python)
@@ -47,6 +53,7 @@
 - **Linting**: ESLint + Prettier (Node), flake8 + black (Python)
 
 ## Key Dependencies
+
 - **Frontend**:
   - next-auth for authentication
   - react-markdown for content rendering
@@ -59,6 +66,7 @@
   - redis-py for caching
 
 ## Technical Constraints
+
 1. **Legal Accuracy**: All responses must be citable and verifiable
 2. **Privacy**: Must comply with educational data protection laws
 3. **Performance**: Sub-second response time for common queries
@@ -66,6 +74,7 @@
 5. **Maintainability**: Clear separation of legal knowledge from code
 
 ## Development Practices
+
 - Test-driven development for critical components
 - Code reviews for all AI prompt engineering
 - Weekly knowledge base updates

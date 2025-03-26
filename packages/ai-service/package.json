@@ -1,0 +1,13 @@
+{
+  "name": "ai-service",
+  "private": true,
+  "scripts": {
+    "start": "python run.py",
+    "dev": "python run.py",
+    "lint": "ruff check .",
+    "format": "black . && ruff check --fix .",
+    "test": "python run_tests.py",
+    "test:watch": "python -m pytest --watch",
+    "coverage": "python run_tests.py && coverage html"
+  }
+}

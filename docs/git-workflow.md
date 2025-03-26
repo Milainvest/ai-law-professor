@@ -1,11 +1,13 @@
 # Git Workflow Guide
 
 ## Overview
+
 This document outlines the Git workflow for the SubtractProxy project.
 
 ## Branch Strategy
 
 ### Main Branch
+
 - `main`: Production-ready code
   - Protected branch
   - Direct pushes are prohibited
@@ -13,6 +15,7 @@ This document outlines the Git workflow for the SubtractProxy project.
   - Must pass CI/CD checks
 
 ### Development Branches
+
 - Feature branches
   - Format: `feature/issue-<number>-<description>`
   - Example: `feature/issue-7-custom-filtering`
@@ -29,6 +32,7 @@ This document outlines the Git workflow for the SubtractProxy project.
    - Assign to team member
 
 2. Branch Creation
+
    ```bash
    git checkout main
    git pull origin main
@@ -60,7 +64,8 @@ This document outlines the Git workflow for the SubtractProxy project.
 ## Commit Messages
 
 Format:
-```
+
+```bash
 <type>: <description>
 
 - amendment details 1
@@ -70,6 +75,7 @@ Issue #<number>
 ```
 
 Types:
+
 - `feat`: add new features 🚀
 - `fix`: fix bugs 🐛
 - `docs`: update documents 📚
@@ -79,7 +85,8 @@ Types:
 - `chore`: miscellaneous changes 🔧
 
 Example:
-```
+
+```bash
 feat: custome filtering rules implementd
 
 - add type definition for filtering rules
@@ -92,6 +99,7 @@ Issue #7
 ## Branch Protection Rules
 
 ### Main Branch Protection
+
 - Require pull request reviews before merging
 - Require status checks to pass before merging
 - Include administrators in restrictions
@@ -99,6 +107,7 @@ Issue #7
 - Require signed commits
 
 ### Pull Request Requirements
+
 - At least one approving review
 - All discussions resolved
 - All status checks passing
@@ -107,6 +116,7 @@ Issue #7
 ## CI/CD Integration
 
 ### Continuous Integration
+
 - Run on pull requests
 - Lint checks
 - Unit tests
@@ -114,6 +124,7 @@ Issue #7
 - Build verification
 
 ### Continuous Deployment
+
 - Automated deployment to staging
 - Manual approval for production
 - Deployment status checks
@@ -130,6 +141,7 @@ Issue #7
 ## Tools and Commands
 
 ### Branch Management
+
 ```bash
 # Update main
 git checkout main
@@ -147,6 +159,7 @@ git push origin feature/issue-<number>-<description>
 ```
 
 ### Branch Cleanup
+
 ```bash
 # Delete local branch
 git branch -d <branch-name>
@@ -156,6 +169,7 @@ git push origin --delete <branch-name>
 ```
 
 ### GitHub CLI
+
 ```bash
 # Create pull request
 gh pr create --title "<title>" --body "<description>"

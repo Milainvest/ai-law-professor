@@ -1,0 +1,27 @@
+{
+  "name": "ai-law-professor",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "frontend": "npm run dev --workspace=frontend",
+    "backend": "npm run dev --workspace=backend",
+    "ai-service": "cd packages/ai-service && source venv/bin/activate && python run.py",
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\" \"npm run ai-service\"",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces",
+    "setup": "npm install && cd packages/backend && npm install && cd ../ai-service && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.4.2",
+    "prettier": "^3.2.5",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "cross-env": "^7.0.3"
+  }
+}
