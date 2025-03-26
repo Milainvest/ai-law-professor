@@ -5,13 +5,13 @@
 1. **Frontend Setup** (Issue #2)
    - [x] Initialize Next.js project with TypeScript
    - [x] Set up TailwindCSS configuration
-   - [ ] Set up basic chat UI components (In Progress)
-     - [ ] Create chat message component
-     - [ ] Implement chat input interface
-     - [ ] Add message history display
-   - [ ] Implement responsive design
-     - [ ] Create mobile-friendly layout
-     - [ ] Add responsive navigation
+   - [x] Set up basic chat UI components
+     - [x] Create chat message component with Markdown
+     - [x] Implement chat input interface
+     - [x] Add message history with auto-scroll
+   - [x] Implement responsive design
+     - [x] Create mobile-friendly layout
+     - [x] Add loading indicators
    - [ ] Create authentication UI components
      - [ ] Login form
      - [ ] Registration form
@@ -47,9 +47,9 @@
      - [ ] Create chat service
 
 4. **System Integration**
-   - [ ] Connect frontend to backend API
-     - [ ] Set up API client in frontend
-     - [ ] Implement error handling middleware
+   - [x] Connect frontend to backend API
+     - [x] Set up API client in frontend
+     - [x] Implement error handling middleware
    - [x] Set up API Gateway routing
      - [x] Configure route mappings
      - [x] Set up CORS policies

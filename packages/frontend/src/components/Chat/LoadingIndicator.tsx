@@ -2,16 +2,22 @@
 
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import type { FC } from 'react';
 
-export default function LoadingIndicator() {
+export const LoadingIndicator: FC = () => {
   return (
-    <div className="flex justify-start max-w-3/4">
-      <div className="bg-gray-100 p-3 rounded-lg space-y-2">
-        <Skeleton count={3} />
+    <div className="flex items-center justify-center p-4">
+      <div className="flex space-x-2">
+        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" 
+             style={{ animationDelay: '0ms' }} />
+        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" 
+             style={{ animationDelay: '150ms' }} />
+        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" 
+             style={{ animationDelay: '300ms' }} />
       </div>
     </div>
   );
-}
+};
 
 export function LoadingDots() {
   return (

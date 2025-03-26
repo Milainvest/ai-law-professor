@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
   OneToMany,
 } from 'typeorm';
-import { LegalDocument } from './legal-document.entity';
+import { LegalDocument } from './legal-document.entity.js';
 
 @Entity('users')
 export class User {

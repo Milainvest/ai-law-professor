@@ -7,7 +7,12 @@ class Settings(BaseSettings):
     # API Settings
     API_V1_STR: str = "/api/v1"
     PROJECT_NAME: str = "AI Law Professor"
-    BACKEND_CORS_ORIGINS: list[str] = ["http://localhost:3000", "http://localhost:3001"]
+    BACKEND_CORS_ORIGINS: list[str] = [
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "http://127.0.0.1:3000",
+        "http://127.0.0.1:3001"
+    ]
 
     # FastAPI Settings
     HOST: str = "0.0.0.0"
@@ -21,10 +26,12 @@ class Settings(BaseSettings):
 
     # Other Settings
     ENVIRONMENT: str = "development"
+    LOG_LEVEL: str = "INFO"
 
     class Config:
         case_sensitive = True
         env_file = ".env"
+        extra = "allow"
 
 
 @lru_cache

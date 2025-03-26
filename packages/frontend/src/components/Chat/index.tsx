@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { sendMessage } from '../../services/api';
 import ChatInput from './ChatInput';
 import ChatMessages from './ChatMessages';
-import LoadingIndicator from './LoadingIndicator';
+import { LoadingIndicator } from './LoadingIndicator';
 import MessageFormatter from './MessageFormatter';
 
 export type Message = {
@@ -14,7 +14,7 @@ export type Message = {
   timestamp: Date;
 };
 
-export default function Chat() {
+export function Chat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,8 +30,6 @@ export default function Chat() {
       setMessages(prev => [...prev, newUserMessage]);
       setIsLoading(true);
       
-      // 意図的な遅延を追加してローディング状態を表示
-      await new Promise(resolve => setTimeout(resolve, 500));
       const response = await sendMessage(text);
       
       if (response?.answer) {
@@ -44,12 +42,17 @@ export default function Chat() {
         setMessages(prev => [...prev, aiMessage]);
       }
       
-    } catch (error) {
+    } catch (error: any) {
       console.error('Chat error:', error);
-      // エラーメッセージを表示
+      const errorText = error.response?.status === 429 
+        ? 'Too many requests. Please wait a moment before trying again.'
+        : error.response?.status === 503
+        ? 'AI service is currently unavailable. Please try again later.'
+        : error.response?.data?.detail || 'An error occurred while processing your request. Please try again.';
+
       const errorMessage = {
         id: Date.now().toString(),
-        text: 'Sorry, there was an error processing your request. Please try again.',
+        text: errorText,
         sender: 'ai' as const,
         timestamp: new Date()
       };
