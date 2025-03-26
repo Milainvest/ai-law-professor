@@ -5,7 +5,7 @@
 1. **Frontend Setup** (Issue #2)
    - [x] Initialize Next.js project with TypeScript
    - [x] Set up TailwindCSS configuration
-   - [ ] Set up basic chat UI components
+   - [ ] Set up basic chat UI components (In Progress)
      - [ ] Create chat message component
      - [ ] Implement chat input interface
      - [ ] Add message history display
@@ -20,34 +20,42 @@
 2. **Backend Setup** (Issue #1)
    - [x] Initialize Express.js API server
    - [x] Set up PostgreSQL database connection
-   - [ ] Implement basic authentication endpoints
+   - [x] Configure PostgreSQL with pgvector
+     - [x] Set up Docker environment
+     - [x] Install pgvector extension
+     - [x] Create database schema
+   - [x] Implement entity models
+     - [x] User entity
+     - [x] Legal document entity
+   - [x] Set up migrations system
+     - [x] Initial schema migration
+     - [x] Vector search indexes
+   - [ ] Implement authentication endpoints (Next Phase)
      - [ ] User registration endpoint
      - [ ] Login endpoint
      - [ ] Password reset endpoint
-   - [ ] Create session management
-     - [ ] JWT implementation
-     - [ ] Session storage setup
-     - [ ] Token refresh mechanism
 
 3. **AI Service Setup** (Issue #3)
    - [x] Initialize FastAPI service
    - [x] Set up project structure
-   - [x] Implement basic RAG pipeline
-   - [ ] Configure PostgreSQL vector extension for embeddings
-     - [ ] Install pgvector extension
-     - [ ] Set up vector similarity search
-     - [ ] Implement embedding storage
+   - [x] Set up basic API endpoints
+     - [x] Health check endpoint
+     - [x] Chat endpoint structure
+   - [ ] Implement vector search integration
+     - [ ] Configure vector similarity search
+     - [ ] Set up embedding generation
+     - [ ] Create chat service
 
 4. **System Integration**
    - [ ] Connect frontend to backend API
      - [ ] Set up API client in frontend
      - [ ] Implement error handling middleware
-   - [ ] Set up API Gateway routing
-     - [ ] Configure route mappings
-     - [ ] Set up CORS policies
-   - [ ] Implement basic error handling
-     - [ ] Create error response format
-     - [ ] Add error logging
+   - [x] Set up API Gateway routing
+     - [x] Configure route mappings
+     - [x] Set up CORS policies
+   - [x] Implement basic error handling
+     - [x] Create error response format
+     - [x] Add error logging
    - [ ] Configure logging system
      - [ ] Set up structured logging
      - [ ] Add request/response logging
