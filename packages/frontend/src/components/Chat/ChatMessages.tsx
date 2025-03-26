@@ -1,14 +1,16 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { checkHealth } from '../../services/api';
-
 import type { Message } from './index';
+import type { FC } from 'react';
+import type { MessageFormatterProps } from './MessageFormatter';
 
 interface ChatMessagesProps {
   messages: Message[];
+  formatter?: FC<MessageFormatterProps>;
 }
 
-export default function ChatMessages({ messages }: ChatMessagesProps) {
+export default function ChatMessages({ messages, formatter: Formatter }: ChatMessagesProps) {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
@@ -48,7 +50,11 @@ export default function ChatMessages({ messages }: ChatMessagesProps) {
                 ? 'bg-blue-100 text-blue-900' 
                 : 'bg-gray-100 text-gray-900'
             }`}>
-              {message.text}
+              {Formatter ? (
+                <Formatter content={message.text} />
+              ) : (
+                message.text
+              )}
             </div>
           </div>
         ))
